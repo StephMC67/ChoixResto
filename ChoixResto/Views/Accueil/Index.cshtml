@@ -1,0 +1,97 @@
+﻿@*@model ChoixResto.Models.Resto*@
+@model ChoixResto.ViewModels.AccueilViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+    }
+
+    td, th {
+        border: 1px solid black;
+    }
+</style>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body>
+
+    <div>    Je suis la vue index </div>
+    @*@{
+        DayOfWeek jour = Model.Date.DayOfWeek;
+        if (jour == DayOfWeek.Saturday || jour == DayOfWeek.Sunday)
+        {
+            <p>Bon week-end</p>
+        }
+        else
+        {
+            <p>Bonne semaine</p>
+        }
+    }*@
+    @*<div>Je suis la vue index</div>*@
+    @*@Html.TextBox("nom", Model.Resto.Nom)
+    @Html.TextBox("nom", Model.Resto.Nom, new { style = "color:red" })
+    @Html.TextBox("telephone", Model.Resto.Telephone)*@
+    @*@Html.DropDownList("RestoChoisi", (SelectList)ViewBag.ListeDesRestos)
+    <input type="submit" value="Envoyer" />*@
+
+    @*
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        @Html.Label("estMajeur", "Cochez la case si vous êtes <strong>majeur</strong>")
+        @Html.CheckBox("estMajeur", true)
+        <input type="submit" value="Envoyer" />
+    }
+    *@
+
+    <div>
+        <ul>
+            <li>@Html.Raw(Model.Message)</li>
+            <li>@Model.Message</li>
+        </ul>
+    </div>
+        
+    @*@Html.Partial("Connexion",Model)*@
+    @*@Html.Action("AfficheListeRestaurant")*@
+    <ul>
+        @*<li>@ViewBag.message</li>
+            <li>@ViewBag.date.ToString("dd/MM/yyyy")</li>
+            <li>@ViewBag.resto.Nom</li>
+            <li>@ViewBag.resto.Telephone</li>*@
+
+        @*<li>@ViewBag.message</li>
+            <li>@ViewBag.date.ToString("dd/MM/yyyy")</li>
+            <li>@Model.Nom</li>
+            <li>@Model.Telephone</li>*@
+
+        @*<li>@Model.Message</li>
+            <li>@Model.Date.ToString("dd/MM/yyyy")</li>
+            <li>@Model.Resto.Nom</li>
+            <li>@Model.Resto.Telephone</li>*@
+
+    </ul>
+    @*<table>
+        <tr>
+            <th>Nom</th>
+            <th>Téléphone</th>
+        </tr>
+        @{
+            foreach (var resto in Model.ListeDesRestos)
+            {
+                <tr>
+                    <td>@resto.Nom</td>
+                    <td>@resto.Telephone</td>
+                </tr>
+            }
+        }
+    </table>*@
+</body>
+</html>
